@@ -5,6 +5,7 @@ from datetime import date
 import requests
 from lxml import html
 from bs4 import BeautifulSoup
+import Update
 
 
 r = requests.get("https://raw.githubusercontent.com/Magixal2000/NeoE/main/README.md")
@@ -272,15 +273,15 @@ def AdminMenu():
     open('TimeSet.txt',mode = 'w').write("Yes")
 
 
-if int(CurrentYear) >= int(DataEnd[0][:DataEnd[0].index('\n')]) and int(CurrentMonth) >= int(DataEnd[1][:DataEnd[1].index('\n')]) and int(CurrentDay) >= int(DataEnd[2]) == True:
-    sys.exit()
-else:
-    FileCheck = open('ProgramVersion.txt',mode = 'r').readline()
-    if str(CurrentVersion)[:str(CurrentVersion).index('\n')] == str(FileCheck):
-        if timeset == "No":
-            AdminMenu()
-        elif timeset == "Yes":
-            SignInMenu()
+def StartUp():
+    if int(CurrentYear) >= int(DataEnd[0][:DataEnd[0].index('\n')]) and int(CurrentMonth) >= int(DataEnd[1][:DataEnd[1].index('\n')]) and int(CurrentDay) >= int(DataEnd[2]) == True:
+        sys.exit()
     else:
-        pass
-
+        FileCheck = open('ProgramVersion.txt',mode = 'r').readline()
+        if str(CurrentVersion)[:str(CurrentVersion).index('')] == str(FileCheck):
+            if timeset == "No":
+                AdminMenu()
+            elif timeset == "Yes":
+                SignInMenu()
+        else:
+            Update.Update()
