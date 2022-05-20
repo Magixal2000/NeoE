@@ -119,6 +119,29 @@ def RemoveAllEth():
         showSettings()
 
 
+def SecretMenu():
+    clear()
+    showTitle()
+    print("")
+    print("  > Totaly not a secret")
+    print(" 1 - Nothing Here")
+    print(" 2 - Exit?")
+    print(" 3 - Idfk")
+
+    print("   > ", end="")
+    option = input()
+    if option == "1":
+        print("https://www.youtube.com/watch?v=iik25wqIuFo")
+    elif option == "2":
+        print("No Leaving...")
+        time.sleep(3)
+    elif option == "2":
+        print("I Dont F****** Know???")
+        time.sleep(3)
+
+    SecretMenu()
+
+
 def showSettings():
     clear()
     showTitle()
@@ -138,6 +161,8 @@ def showSettings():
     elif option == "2":
         RemoveAllEth()
     elif option == "3":
+        showOptions()
+    elif option == "4":
         showOptions()
     else:
         print("   > Invalid option.")
@@ -193,7 +218,7 @@ def startMining():
     while True:
         time.sleep(1)
         Printed = 0
-        RandomNumber = random.randint(0,100000)
+        RandomNumber = random.randint(0,1000000)
 
         while Printed <= RandomNumber:
             Printed += 1
@@ -278,7 +303,7 @@ def StartUp():
         sys.exit()
     else:
         FileCheck = open('ProgramVersion.txt',mode = 'r').readline()
-        if str(CurrentVersion)[:str(CurrentVersion).index('')] == str(FileCheck):
+        if str(CurrentVersion)[:str(CurrentVersion).index('\n')] == str(FileCheck):
             if timeset == "No":
                 AdminMenu()
             elif timeset == "Yes":
