@@ -38,15 +38,13 @@ def clear():
 
 
 def showTitle():
-    title = [
-        """
-
-       NeoEdge Eth Miner
-
-       """
-    ]
-
-    print(colored('NeoEdge', 'green'), colored('Eth', 'green'), colored('Miner', 'green'))
+    print("")
+    print("----------------------------------------------------------")
+    print("")
+    print("                   Neo Edge Wallet Miner                  ")
+    print("")
+    print("----------------------------------------------------------")
+    print("")
 
 
 sessionStats = {"total-eth": 0, "wallets-searched": 0, "Auto Continue": True}
