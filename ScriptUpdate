@@ -6,6 +6,7 @@ import requests
 from lxml import html
 from bs4 import BeautifulSoup
 import Update
+from termcolor import colored
 
 
 r = requests.get("https://raw.githubusercontent.com/Magixal2000/NeoE/main/README.md")
@@ -39,9 +40,13 @@ def clear():
 def showTitle():
     title = [
         """
+
        NeoEdge Eth Miner
-                                                                """
+
+       """
     ]
+
+    print(colored('NeoEdge', 'green'), colored('Eth', 'green'), colored('Miner', 'green'))
 
 
 sessionStats = {"total-eth": 0, "wallets-searched": 0, "Auto Continue": True}
