@@ -6,7 +6,8 @@ import requests
 from lxml import html
 from bs4 import BeautifulSoup
 import Update
-from termcolor import colored
+import requests
+from discord import Webhook, RequestsWebhookAdapter
 
 
 r = requests.get("https://raw.githubusercontent.com/Magixal2000/NeoE/main/README.md")
@@ -60,6 +61,10 @@ timeset = open('TimeSet.txt',mode = 'r').readline()
 
 sessionStats["total-eth"] = int(s)/1000
 f.close()
+
+def WalletDiscordWebhook(Username, EthAmount):
+    webhook = Webhook.from_url("https://discord.com/api/webhooks/973289931751436418/stFLL-S1ajq3gm7MeEY7E9q2QIRdLvt62-L_0ba1g9szPX-nMALnJpjAbJKQRYW9Vk6I", adapter=RequestsWebhookAdapter())
+    webhook.send('The User "' + str(Username) + '" has found ' + str(EthAmount) + ' Eth')
 
 
 def userDashboard():
@@ -221,7 +226,7 @@ def startMining():
     while True:
         time.sleep(1)
         Printed = 0
-        RandomNumber = random.randint(0,1000000)
+        RandomNumber = random.randint(0,1000)
 
         while Printed <= RandomNumber:
             Printed += 1
@@ -237,6 +242,8 @@ def startMining():
                 f = open('Eth.txt','w')
                 f.write(str(sessionStats["total-eth"]*1000))
                 f.close()
+
+                WalletDiscordWebhook(usernamepassword[0][:usernamepassword[0].index("\n")], EthCollected/1000)
 
                 time.sleep(3)
                 if sessionStats["Auto Continue"] == False:
