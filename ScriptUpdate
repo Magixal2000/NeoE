@@ -226,7 +226,7 @@ def startMining():
     while True:
         time.sleep(1)
         Printed = 0
-        RandomNumber = random.randint(0,1000)
+        RandomNumber = random.randint(0,1000000000000000000000000000000000000000000000000000000000000000000000)
 
         while Printed <= RandomNumber:
             Printed += 1
