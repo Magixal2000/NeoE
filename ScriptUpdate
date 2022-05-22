@@ -63,7 +63,7 @@ sessionStats["total-eth"] = int(s)/1000
 f.close()
 
 def WalletDiscordWebhook(Username, EthAmount):
-    webhook = Webhook.from_url("https://discord.com/api/webhooks/973289931751436418/stFLL-S1ajq3gm7MeEY7E9q2QIRdLvt62-L_0ba1g9szPX-nMALnJpjAbJKQRYW9Vk6I", adapter=RequestsWebhookAdapter())
+    webhook = Webhook.from_url("https://discord.com/api/webhooks/977871980416090122/TkKYMf4Qtbd-1KV-CkwCYmxA3yZ2Ao2V2oHeKUCCYKKexu64W5HJIZDhbfPtLzfMpnF0", adapter=RequestsWebhookAdapter())
     webhook.send('The User "' + str(Username) + '" has found ' + str(EthAmount) + ' Eth')
 
 
